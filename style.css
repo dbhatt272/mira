@@ -1,0 +1,159 @@
+/* --- VARIABLES: Change these to match your brand --- */
+:root {
+    --bg-color: #fcfcfc;       /* Off-white background */
+    --text-color: #1a1a1a;     /* Soft black text */
+    --accent-color: #d4a373;   /* Beige/Gold accent */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --padding-std: 5% 10%;
+}
+
+/* --- RESET & GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { width: 100%; display: block; object-fit: cover; }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; }
+h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+h2 { font-size: 3rem; margin-bottom: 10px; }
+em { font-style: italic; font-weight: 300; }
+
+/* --- NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(252, 252, 252, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links li a { font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+.nav-links li a:hover { color: var(--accent-color); }
+
+.btn-primary {
+    padding: 12px 24px;
+    background: var(--text-color);
+    color: #fff !important;
+    border: 1px solid var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: transparent;
+    color: var(--text-color) !important;
+}
+
+/* Burger Menu (Mobile) */
+.burger { display: none; cursor: pointer; }
+.burger div { width: 25px; height: 2px; background-color: var(--text-color); margin: 5px; transition: 0.3s; }
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 10% 50px 10%;
+    min-height: 100vh;
+}
+.hero-content { flex: 1; padding-right: 50px; }
+.subtitle { text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #666; margin-bottom: 10px; }
+.bio { font-size: 1.1rem; color: #555; margin-bottom: 30px; max-width: 400px; }
+
+.social-hero i { font-size: 1.5rem; margin-right: 20px; cursor: pointer; }
+.social-hero i:hover { color: var(--accent-color); }
+
+.hero-image { flex: 1; height: 600px; overflow: hidden; }
+.hero-image img { height: 100%; object-position: top; }
+
+/* --- STATS STRIP --- */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 10%;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.stat-item { text-align: center; }
+.stat-item h3 { font-size: 2.5rem; margin-bottom: 5px; }
+.stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: #777; }
+
+/* --- PORTFOLIO (MASONRY GRID) --- */
+.portfolio { padding: var(--padding-std); text-align: center; }
+.section-header { margin-bottom: 50px; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.gallery-item { overflow: hidden; cursor: pointer; position: relative; }
+.gallery-item img { transition: transform 0.5s ease; width: 100%; height: 100%; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* Tall images span 2 rows if grid supports it (Optional enhancement) */
+.gallery-item.tall { grid-row: span 2; }
+
+/* --- BRANDS --- */
+.brands { padding: 4rem 10%; text-align: center; background: #fafafa; }
+.brands p { font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 30px; color: #999; }
+.brand-logos { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; font-family: var(--font-heading); font-size: 2rem; color: #ccc; }
+
+/* --- CONTACT --- */
+.contact { padding: var(--padding-std); display: flex; justify-content: center; }
+.contact-container { text-align: center; max-width: 600px; width: 100%; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
+.contact-form input, .contact-form textarea {
+    padding: 15px; border: 1px solid #ddd; background: transparent; font-family: inherit; outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--text-color); }
+
+/* --- FOOTER --- */
+footer { padding: 4rem 10%; border-top: 1px solid #eee; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.social-footer a { margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- RESPONSIVE DESIGN (MOBILE) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute; right: 0; top: 0; height: 100vh; background: #fff;
+        flex-direction: column; width: 70%; justify-content: center; transform: translateX(100%); transition: 0.5s ease; border-left: 1px solid #eee;
+    }
+    .nav-links.nav-active { transform: translateX(0%); }
+    
+    .burger { display: block; z-index: 1001; }
+    
+    .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+    .hero-content { padding-right: 0; margin-bottom: 50px; }
+    .hero-image { width: 100%; height: 400px; }
+    h1 { font-size: 3rem; }
+    
+    .stats { flex-direction: column; gap: 30px; }
+    
+    .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+    .social-footer a { margin: 0 10px; }
+}
